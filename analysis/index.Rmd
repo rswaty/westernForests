@@ -10,7 +10,7 @@ editor_options:
 
 
 ## Western Forests Ecosystem Classification
-This "site" is where we can explore the comparison between [2016 LANDFIRE Existing Vegetation Type (EVT)](https://landfire.gov/evt.php) and [Treemap 2016](https://data.nal.usda.gov/dataset/treemap-2016-tree-level-model-forests-conterminous-united-states-circa-2016) data among other things as they come up.
+This "site" (not for public consumption) is where we can explore the comparison between [2016 LANDFIRE Existing Vegetation Type (EVT)](https://landfire.gov/evt.php) and [Treemap 2016](https://data.nal.usda.gov/dataset/treemap-2016-tree-level-model-forests-conterminous-united-states-circa-2016) data among other things as they come up.
 
 ## Methods
 Breifly, Kori Blankenship combined the Treeap and EVT datasets using the ["Combine"](https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/combine.htm) tool in the Spatial Analyst Toolbox of ArcGIS Pro (version).  This tool essentially creates a new raster by "stacking" multiple rasters together, thereby giving each pixel the VALUES from each of the input rasters.  Kori then joined in the attribute tables from the TreeMap and EVT data.

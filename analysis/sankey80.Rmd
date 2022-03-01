@@ -63,8 +63,10 @@ snkyP2
 ## Data table
 
 ```{r sankey80-80data, echo=FALSE, message=FALSE, warning=FALSE}
+
+DT80 <- read_csv("data/sankey80-80.csv")
 library(DT)
-datatable(snkyPdata,
+datatable(DT80,
           colnames = c("TreeMap forest types",
                        "EVTs",
                        "Acres"),

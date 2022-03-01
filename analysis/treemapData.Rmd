@@ -1,0 +1,92 @@
+---
+title: "TreeMap Data"
+author: "rswaty"
+date: "2022-02-28"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r packages, message=FALSE, warning=FALSE, include=FALSE}
+library(DT)
+library(scales)
+library(tidyverse)
+```
+
+
+## The TreeMap data
+
+Below is a chart representing acres per forested TreeMap ecosystem, followed by the raw data.  
+
+**Notable:**
+
+* There are 118 types in the analysis area, including some oddballs such as "Loblolly Pine" and "Swamp chestnut oak / cherrybark oak" which are only found in the SE region of the US.
+* We assume we will filter out "wet" types, types that do not exist in the western US as we know it, and pinyon-juniper-cedar types.
+* 80% of the analysis area is covered by the top 14 types in the unfiltered data. 
+
+
+### The (long!) chart
+
+```{r tmChart, echo=FALSE, message=FALSE, warning=FALSE, fig.height=18, fig.width=8, fig.align='left'}
+
+# read in data
+fsttype_evt200 <- read_csv("data/fsttype_evt200.csv")
+#View(fsttype_evt200)
+
+# format TreeMap data for chart
+tmData <- fsttype_evt200 %>%
+  group_by(FORTYPNAME) %>%
+  summarise(COUNT = sum(COUNT)) %>%
+  mutate(ACRES = (COUNT *0.222)) %>%
+  arrange(desc(ACRES))
+
+# make chart
+tmPlot <-
+  ggplot(tmData, aes(y = ACRES, x = reorder(FORTYPNAME, -ACRES))) +
+  geom_bar(stat = "identity", fill = "#268754") +
+  coord_flip() +
+  labs(
+    title = "Acreage of each forested TreeMap ecosystem in the western states",
+    subtitle = "Unfiltered, i.e., includes Pinyon-Junper and riparian types",
+    caption = "Data from https://data.nal.usda.gov/dataset/treemap-2016-tree-level-model-forests-conterminous-united-states-circa-2016.",
+    x = "",
+    y = "Acres",
+    fill = "Status") +
+  scale_x_discrete(limits=rev) +
+	scale_y_continuous(labels = label_number(suffix = " M", scale = 1e-6)) + 
+  theme_bw(base_size = 14) + 
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot") + 
+  annotate(
+    geom = "curve", x = 105, y = 20000000, xend = 105, yend = 5000000, 
+    curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  ) +
+  annotate(geom = "text", x = 105, y = 21000000, label = "80% point", hjust = "left")
+
+tmPlot
+
+```
+ 
+ <br>
+ 
+### Data table
+
+
+Here's the data as used in the chart above for your amusememt.
+<br>
+
+```{r tmData, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+datatable(tmData,
+          colnames = c("TreeMap forest types",
+                       "Raw pixel count",
+                       "Acres"),
+          class = 'cell-border stripe')
+
+```
+
+
+
+
