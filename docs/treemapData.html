@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="rswaty" />
 
+<meta name="date" content="2022-02-28" />
 
-<title>Home</title>
+<title>TreeMap Data</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +31,20 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.20/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -230,6 +243,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -237,6 +313,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -286,7 +372,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">TreeMap Data</h1>
+<h4 class="author">rswaty</h4>
+<h4 class="date">2022-02-28</h4>
 
 </div>
 
@@ -440,7 +528,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/treemapData.Rmd</code>) and HTML (<code>docs/treemapData.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -469,7 +557,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/rswaty/westernForests/blob/8880e40c838d7aca131e0679064d48384d38a258/analysis/index.Rmd" target="_blank">8880e40</a>
+<a href="https://github.com/rswaty/westernForests/blob/8880e40c838d7aca131e0679064d48384d38a258/analysis/treemapData.Rmd" target="_blank">8880e40</a>
 </td>
 <td>
 rswaty
@@ -481,57 +569,6 @@ rswaty
 added treemap page
 </td>
 </tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/57e69f8945346e5481bb88cad9b80f3c58887c02/docs/index.html" target="_blank">57e69f8</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-02-28
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/westernForests/blob/86acad30df63c7410aa78a96994a5a2d5e4941ce/analysis/index.Rmd" target="_blank">86acad3</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-02-28
-</td>
-<td>
-Publish the initial files
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/westernForests/blob/5857e8dc0ed20b21a9be903bfbc74de1ac324c4f/analysis/index.Rmd" target="_blank">5857e8d</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-02-28
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -539,16 +576,25 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div id="western-forests-ecosystem-classification" class="section level2">
-<h2>Western Forests Ecosystem Classification</h2>
-<p>This “site” (not for public consumption) is where we can explore the comparison between <a href="https://landfire.gov/evt.php">2016 LANDFIRE Existing Vegetation Type (EVT)</a> and <a href="https://data.nal.usda.gov/dataset/treemap-2016-tree-level-model-forests-conterminous-united-states-circa-2016">Treemap 2016</a> data among other things as they come up.</p>
+<div id="the-treemap-data" class="section level2">
+<h2>The TreeMap data</h2>
+<p>Below is a chart representing acres per forested TreeMap ecosystem, followed by the raw data.</p>
+<p><strong>Notable:</strong></p>
+<ul>
+<li>There are 118 types in the analysis area, including some oddballs such as “Loblolly Pine” and “Swamp chestnut oak / cherrybark oak” which are only found in the SE region of the US.</li>
+<li>We assume we will filter out “wet” types, types that do not exist in the western US as we know it, and pinyon-juniper-cedar types.</li>
+<li>80% of the analysis area is covered by the top 14 types in the unfiltered data.</li>
+</ul>
+<div id="the-long-chart" class="section level3">
+<h3>The (long!) chart</h3>
+<p><img src="figure/treemapData.Rmd/tmChart-1.png" width="768" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br></p>
 </div>
-<div id="methods" class="section level2">
-<h2>Methods</h2>
-<p>Breifly, Kori Blankenship combined the Treeap and EVT datasets using the <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/combine.htm">“Combine”</a> tool in the Spatial Analyst Toolbox of ArcGIS Pro (version). This tool essentially creates a new raster by “stacking” multiple rasters together, thereby giving each pixel the VALUES from each of the input rasters. Kori then joined in the attribute tables from the TreeMap and EVT data.</p>
-<p>There were other GIS steps. Kori’s notes can be found <a href="ProcessingNotes%204%20Forest%20Type%20and%20ForestType-EVT%20Grids.docx">here</a>.</p>
-<pre class="r"><code>knitr::include_graphics(&quot;states.JPG&quot;, error = FALSE)</code></pre>
-<p><img src="states.JPG" style="display: block; margin: auto;" /></p>
+<div id="data-table" class="section level3">
+<h3>Data table</h3>
+<p>Here’s the data as used in the chart above for your amusememt. <br></p>
+<div id="htmlwidget-77681f5b5c33594df076" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-77681f5b5c33594df076">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119"],["Pinyon / juniper woodland","Douglas-fir","Ponderosa pine","Lodgepole pine","Juniper woodland","Aspen","Engelmann spruce / subalpine fir","California mixed conifer","Red alder","Grand fir","Western juniper","Rocky Mountain juniper","Western hemlock","Subalpine fir","Engelmann spruce","Blue oak","White fir","Canyon live oak","Pacific silver fir","Tanoak","Deciduous oak woodland","Paper birch","Western redcedar","California black oak","Western larch","Oregon white oak","Evergreen oak woodland","Balsam fir","Cercocarpus (mountain brush) woodland","Other hardwoods","Mountain hemlock","Cottonwood","Whitebark pine","Coast live oak","Bigleaf maple","Sugar maple / beech / yellow birch","Nonstocked","Red fir","Interior live oak","Jeffrey pine","Redwood","Sugarberry / hackberry / elm / green ash","Oregon ash","California laurel","Pacific madrone","Noble fir","Limber pine","Sitka spruce","Gray pine","Elm / ash / black locust","Mesquite woodland","Bur oak","Miscellaneous western softwoods","Western white pine","Intermountain maple woodland","Foxtail pine / bristlecone pine","Sassafras / persimmon","White spruce","Eastern white pine / northern red oak / white ash","Mixed upland hardwoods","Eastern redcedar / hardwood","Sugar pine","California white oak (valley oak)","Miscellaneous woodland hardwoods","Willow","Red maple / upland","Giant chinkapin","White oak / red oak / hickory","Blue spruce","Coulter pine","Cottonwood / willow","Knobcone pine","Hard maple / basswood","Sycamore / pecan / American elm","Black walnut","Black ash / American elm / red maple","Southern scrub oak","Eastern redcedar","Other exotic hardwoods","Black locust","Alaska-yellow-cedar","Incense-cedar","White oak","Pin cherry","Jack pine","Balsam poplar","Port-Orford-cedar","Black spruce","Southwestern white pine","Tamarack","Cherry / white ash / yellow-poplar","Red pine","Baldcypress / water tupelo","Northern white-cedar","Other pine / hardwood","Sweetgum / Nuttall oak / willow oak","Silver maple / American elm","Eastern white pine","Paulownia","Post oak / blackjack oak","Red maple / lowland","River birch / sycamore","Loblolly pine","Red maple / oak","Chestnut oak / black oak / scarlet oak","Northern red oak","Loblolly pine / hardwood","Sweetgum / yellow-poplar","Red spruce / balsam fir","Longleaf pine / oak","Virginia pine / southern red oak","Black cherry","Swamp chestnut oak / cherrybark oak","Red spruce","Yellow-poplar","Yellow-poplar / white oak / northern red oak","Chestnut oak","Sweetbay / swamp tupelo / red maple","Longleaf pine"],[139070278,135981068,115585441,72098460,52578985,38701272,31183981,30714856,21934717,21770235,18817711,18718560,16982400,16025709,11314988,11184158,10148026,9180606,8395606,7891399,6729865,6563497,6557657,6537493,6216580,5877555,5428801,5193011,4789239,4544174,4329637,3915582,3812609,3430029,3428365,3252656,2910464,2878666,2672048,2521973,2518933,2390819,2084765,2038916,2032223,1876889,1874010,1688584,1171985,1161773,1116159,1098298,961020,934156,814044,753450,717942,661018,583910,510578,428890,412757,352016,330909,318431,277255,261217,241626,191672,191353,190139,147111,122766,118893,118689,116941,110290,99831,97747,91811,84509,73734,70412,68208,67275,44902,42272,36377,29481,25709,21798,19551,16728,16422,15388,13933,12316,10245,9508,9260,5649,4382,4335,4104,1760,603,587,552,254,179,169,127,69,25,7,7,4,3,1],[30873601.716,30187797.096,25659967.902,16005858.12,11672534.67,8591682.384,6922843.782,6818698.032,4869507.174,4832992.17,4177531.842,4155520.32,3770092.8,3557707.398,2511927.336,2482883.076,2252861.772,2038094.532,1863824.532,1751890.578,1494030.03,1457096.334,1455799.854,1451323.446,1380080.76,1304817.21,1205193.822,1152848.442,1063211.058,1008806.628,961179.414,869259.204,846399.198,761466.438,761097.03,722089.632,646123.008,639063.852,593194.656,559878.006,559203.126,530761.818,462817.83,452639.352,451153.506,416669.358,416030.22,374865.648,260180.67,257913.606,247787.298,243822.156,213346.44,207382.632,180717.768,167265.9,159383.124,146745.996,129628.02,113348.316,95213.58,91632.054,78147.552,73461.798,70691.682,61550.61,57990.174,53640.972,42551.184,42480.366,42210.858,32658.642,27254.052,26394.246,26348.958,25960.902,24484.38,22162.482,21699.834,20382.042,18760.998,16368.948,15631.464,15142.176,14935.05,9968.244,9384.384,8075.694,6544.782,5707.398,4839.156,4340.322,3713.616,3645.684,3416.136,3093.126,2734.152,2274.39,2110.776,2055.72,1254.078,972.804,962.37,911.088,390.72,133.866,130.314,122.544,56.388,39.738,37.518,28.194,15.318,5.55,1.554,1.554,0.888,0.666,0.222]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>TreeMap forest types<\/th>\n      <th>Raw pixel count<\/th>\n      <th>Acres<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -574,21 +620,31 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.7.0
+ [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
+ [5] readr_2.1.2     tidyr_1.2.0     tibble_3.1.6    ggplot2_3.3.5  
+ [9] tidyverse_1.3.1 scales_1.1.1    DT_0.20         workflowr_1.7.0
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8       highr_0.9        bslib_0.3.1      compiler_4.1.2  
- [5] pillar_1.7.0     later_1.3.0      git2r_0.29.0     jquerylib_0.1.4 
- [9] tools_4.1.2      getPass_0.2-2    digest_0.6.29    jsonlite_1.7.3  
-[13] evaluate_0.14    tibble_3.1.6     lifecycle_1.0.1  pkgconfig_2.0.3 
-[17] rlang_1.0.1      cli_3.1.1        rstudioapi_0.13  yaml_2.2.2      
-[21] xfun_0.29        fastmap_1.1.0    httr_1.4.2       stringr_1.4.0   
-[25] knitr_1.37       sass_0.4.0       fs_1.5.2         vctrs_0.3.8     
-[29] rprojroot_2.0.2  glue_1.6.1       R6_2.5.1         processx_3.5.2  
-[33] fansi_1.0.2      rmarkdown_2.11   callr_3.7.0      magrittr_2.0.2  
-[37] whisker_0.4      ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2 
-[41] ellipsis_0.3.2   httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6   
-[45] crayon_1.4.2    </code></pre>
+ [1] httr_1.4.2        sass_0.4.0        bit64_4.0.5       vroom_1.5.7      
+ [5] jsonlite_1.7.3    modelr_0.1.8      bslib_0.3.1       assertthat_0.2.1 
+ [9] getPass_0.2-2     highr_0.9         cellranger_1.1.0  yaml_2.2.2       
+[13] pillar_1.7.0      backports_1.4.1   glue_1.6.1        digest_0.6.29    
+[17] promises_1.2.0.1  rvest_1.0.2       colorspace_2.0-3  htmltools_0.5.2  
+[21] httpuv_1.6.5      pkgconfig_2.0.3   broom_0.7.12      haven_2.4.3      
+[25] processx_3.5.2    whisker_0.4       later_1.3.0       tzdb_0.2.0       
+[29] git2r_0.29.0      generics_0.1.2    farver_2.1.0      ellipsis_0.3.2   
+[33] withr_2.4.3       cli_3.1.1         magrittr_2.0.2    crayon_1.4.2     
+[37] readxl_1.3.1      evaluate_0.14     ps_1.6.0          fs_1.5.2         
+[41] fansi_1.0.2       xml2_1.3.3        tools_4.1.2       hms_1.1.1        
+[45] lifecycle_1.0.1   munsell_0.5.0     reprex_2.0.1      callr_3.7.0      
+[49] compiler_4.1.2    jquerylib_0.1.4   rlang_1.0.1       grid_4.1.2       
+[53] rstudioapi_0.13   htmlwidgets_1.5.4 crosstalk_1.2.0   labeling_0.4.2   
+[57] rmarkdown_2.11    gtable_0.3.0      DBI_1.1.2         R6_2.5.1         
+[61] lubridate_1.8.0   knitr_1.37        fastmap_1.1.0     bit_4.0.4        
+[65] utf8_1.2.2        rprojroot_2.0.2   stringi_1.7.6     parallel_4.1.2   
+[69] Rcpp_1.0.8        vctrs_0.3.8       dbplyr_2.1.1      tidyselect_1.1.1 
+[73] xfun_0.29        </code></pre>
+</div>
 </div>
 </div>
 
@@ -608,6 +664,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -640,6 +698,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
