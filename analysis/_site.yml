@@ -11,10 +11,10 @@ navbar:
     href: evtData.html
   - text: Sankey
     href: sankey80.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  # - text: About
+  #   href: about.html
+  # - text: License
+  #   href: license.html
   right:
   - icon: fab fa-github
     text: Source code
