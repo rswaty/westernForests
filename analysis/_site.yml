@@ -5,6 +5,8 @@ navbar:
   left:
   - text: Home
     href: index.html
+  - text: TreeMap Data
+    href: treemapData.html
   - text: Sankey
     href: sankey80.html
   - text: About
