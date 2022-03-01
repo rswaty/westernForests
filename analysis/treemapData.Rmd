@@ -1,6 +1,6 @@
 ---
 title: "TreeMap Data"
-author: "rswaty"
+author: "Kori Blakenship and Randy Swaty"
 date: "2022-02-28"
 output: workflowr::wflow_html
 editor_options:

@@ -17,9 +17,10 @@ Breifly, Kori Blankenship combined the Treeap and EVT datasets using the ["Combi
 
 There were other GIS steps.  Kori's notes can be found [here](ProcessingNotes 4 Forest Type and ForestType-EVT Grids.docx).
 
+# Analysis Area
+Shapefile from Lisa McCauley.  Names left off for fun.  Canadians would know which state is which :).  
 
-
-```{r}
+```{r states, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("states.JPG", error = FALSE)
 ```
 
