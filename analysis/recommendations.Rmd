@@ -60,17 +60,17 @@ knitr::include_graphics("assets/states.JPG", error = FALSE)
 
 FIA
 ```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/states.JPG", error = FALSE)
+knitr::include_graphics("assets/DryForestFIA.JPG", error = FALSE)
 ```
 
 SAF
 ```{r SAFmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/DryForest-SAF.JPG", error = FALSE)
+knitr::include_graphics("assets/DryForestSAF.JPG", error = FALSE)
 ```
 
 
 EVT
 ```{r EVTmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/DryForest-EVT.JPG", error = FALSE)
+knitr::include_graphics("assets/DryForestEVT.JPG", error = FALSE)
 ```
 
