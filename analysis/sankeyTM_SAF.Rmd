@@ -17,7 +17,7 @@ We hope you like brown 'cause we aren't changing it.  Brown (aka "Hazel") likes 
 
 
 ```{r states, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("brown.JPG", error = FALSE)
+knitr::include_graphics("assets/brown.JPG", error = FALSE)
 ```
 
  
