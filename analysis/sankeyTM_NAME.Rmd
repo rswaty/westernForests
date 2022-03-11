@@ -12,6 +12,14 @@ editor_options:
 For this chart I filtered the TreeMap types first by "Dry" types as assigned by Randy and Kori, then by those that cover 80% of the western states then filtered the EVT types that cover 80% of those types.  Below the chart is the dataset used in the chart for your enjoyment/review. 
 
 Hover over nodes to explore connections.  Node/band size represents relative amounts.  To get acres explore table below.
+
+We hope you like brown 'cause we aren't changing it.  Brown (aka "Hazel") likes it.
+
+
+```{r states, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("brown.JPG", error = FALSE)
+```
+
  
  <br>
  
