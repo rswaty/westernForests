@@ -490,16 +490,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatywesternForeststree1f61dcef37cbd23e2f62e8d24377de311392ea25targetblank1f61dcea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/westernForests/tree/1f61dcef37cbd23e2f62e8d24377de311392ea25" target="_blank">1f61dce</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatywesternForeststreec2dd2f7bee40ccc611e9392c7168ad41077e9752targetblankc2dd2f7a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/westernForests/tree/c2dd2f7bee40ccc611e9392c7168ad41077e9752" target="_blank">c2dd2f7</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatywesternForeststree1f61dcef37cbd23e2f62e8d24377de311392ea25targetblank1f61dcea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatywesternForeststreec2dd2f7bee40ccc611e9392c7168ad41077e9752targetblankc2dd2f7a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rswaty/westernForests/tree/1f61dcef37cbd23e2f62e8d24377de311392ea25" target="_blank">1f61dce</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rswaty/westernForests/tree/c2dd2f7bee40ccc611e9392c7168ad41077e9752" target="_blank">c2dd2f7</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -509,14 +509,11 @@ Ignored files:
     Ignored:    .Rproj.user/
 
 Untracked files:
-    Untracked:  DryForest-EVT.jpg
-    Untracked:  DryForest-FIA.jpg
-    Untracked:  DryForest-SAF.jpg
-    Untracked:  data/kbTable.csv
-    Untracked:  data/kbTable2.csv
-    Untracked:  map comparison FIA SAF EVT.docx
-    Untracked:  tree map fia forest type.jpg
-    Untracked:  ~$p comparison FIA SAF EVT.docx
+    Untracked:  analysis/DryForest-EVT.jpg
+    Untracked:  analysis/DryForest-FIA.jpg
+    Untracked:  analysis/DryForest-SAF.jpg
+    Untracked:  analysis/brown.jpg
+    Untracked:  analysis/states.JPG
 
 </code></pre>
 <p>
@@ -555,6 +552,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rswaty/westernForests/43b1300ecda046fe074f9680745814be3862335c/docs/recommendations.html" target="_blank">43b1300</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2022-03-11
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -988,15 +1002,15 @@ Distinguishes dry vs. mesic mixed conifer
 <h2>Maps</h2>
 <div id="fia" class="section level3">
 <h3>FIA</h3>
-<p><img src="DryForest-FIA.JPG" style="display: block; margin: auto;" /></p>
+<p><img src="DryForest-FIA.jpg" width="362" style="display: block; margin: auto;" /></p>
 </div>
 <div id="saf" class="section level3">
 <h3>SAF</h3>
-<p><img src="DryForest-SAF.JPG" style="display: block; margin: auto;" /></p>
+<p><img src="DryForest-SAF.jpg" width="362" style="display: block; margin: auto;" /></p>
 </div>
 <div id="evt" class="section level3">
 <h3>EVT</h3>
-<p><img src="DryForest-EVT.JPG" style="display: block; margin: auto;" /></p>
+<p><img src="DryForest-EVT.jpg" width="362" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1043,9 +1057,9 @@ loaded via a namespace (and not attached):
 [53] cli_3.1.1         stringi_1.7.6     fs_1.5.2          promises_1.2.0.1 
 [57] xml2_1.3.3        bslib_0.3.1       ellipsis_0.3.2    generics_0.1.2   
 [61] vctrs_0.3.8       tools_4.1.2       bit64_4.0.5       glue_1.6.1       
-[65] hms_1.1.1         parallel_4.1.2    processx_3.5.2    fastmap_1.1.0    
-[69] yaml_2.2.2        colorspace_2.0-3  rvest_1.0.2       knitr_1.37       
-[73] haven_2.4.3       sass_0.4.0       </code></pre>
+[65] jpeg_0.1-9        hms_1.1.1         parallel_4.1.2    processx_3.5.2   
+[69] fastmap_1.1.0     yaml_2.2.2        colorspace_2.0-3  rvest_1.0.2      
+[73] knitr_1.37        haven_2.4.3       sass_0.4.0       </code></pre>
 </div>
 </div>
 </div>
