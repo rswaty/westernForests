@@ -21,6 +21,6 @@ There were other GIS steps.  Kori's notes can be found [here](ProcessingNotes 4 
 Shapefile from Lisa McCauley.  Names left off for fun.  Canadians would know which state is which :).  
 
 ```{r states, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/fia.JPG", error = FALSE)
+knitr::include_graphics("assets/states.JPG", error = FALSE)
 ```
 

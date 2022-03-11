@@ -50,23 +50,3 @@ kbTable2 %>%
 * FIA may be preferred for linking to literature and for C calculation but need to address issues w/ distinguishing dry vs. wet Douglas-fir and Mixed Conifer
 * We could use LF EVT to split these out.
 
-## Maps
-
-
-
-FIA
-```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/fia.JPG", error = FALSE)
-```
-
-SAF
-```{r SAFmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/DryForestSAF.JPG", error = FALSE)
-```
-
-
-EVT
-```{r EVTmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/DryForestEVT.JPG", error = FALSE)
-```
-
