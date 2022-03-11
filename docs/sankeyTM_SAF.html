@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Kori Blakenship and Randy Swaty" />
 
+<meta name="date" content="2022-03-11" />
 
-<title>Home</title>
+<title>Sankey comparing TreeMap to EVT (SAF_SRM attribute)</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +31,23 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/d3-4.5.0/d3.min.js"></script>
+<script src="site_libs/sankey-1/sankey.js"></script>
+<script src="site_libs/sankeyNetwork-binding-0.4/sankeyNetwork.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.20/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -230,6 +246,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -237,6 +316,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -292,7 +381,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Sankey comparing TreeMap to EVT (SAF_SRM attribute)</h1>
+<h4 class="author">Kori Blakenship and Randy Swaty</h4>
+<h4 class="date">2022-03-11</h4>
 
 </div>
 
@@ -451,7 +542,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/sankeyTM_SAF.Rmd</code>) and HTML (<code>docs/sankeyTM_SAF.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -477,10 +568,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/db778d5f7186a861f05345067a931ba59c56a92a/docs/index.html" target="_blank">db778d5</a>
+<a href="https://github.com/rswaty/westernForests/blob/91168a664fefbd6019940fcbe2943f43464ca5f0/analysis/sankeyTM_SAF.Rmd" target="_blank">91168a6</a>
 </td>
 <td>
 rswaty
@@ -489,177 +580,7 @@ rswaty
 2022-03-11
 </td>
 <td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/73c6c1579df1d61e8f4830407482355cc40fcd87/docs/index.html" target="_blank">73c6c15</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-11
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/30175063b07a3a788a0a83dc4f5edd2fc509f057/docs/index.html" target="_blank">3017506</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/f6b428b08c168c2ce3310cf2784b68e9d463a87e/docs/index.html" target="_blank">f6b428b</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/69160c19933e32032df225804c2e29e9e1dc4c62/docs/index.html" target="_blank">69160c1</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/westernForests/blob/f2c7b7e8901ebb5cdf193e17777a9bad157e442c/analysis/index.Rmd" target="_blank">f2c7b7e</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-01
-</td>
-<td>
-added EVT page
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/871852220a9dbb6529502923dc151496ab15bcd3/docs/index.html" target="_blank">8718522</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-01
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/westernForests/blob/8880e40c838d7aca131e0679064d48384d38a258/analysis/index.Rmd" target="_blank">8880e40</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-03-01
-</td>
-<td>
-added treemap page
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/westernForests/57e69f8945346e5481bb88cad9b80f3c58887c02/docs/index.html" target="_blank">57e69f8</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-02-28
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/westernForests/blob/86acad30df63c7410aa78a96994a5a2d5e4941ce/analysis/index.Rmd" target="_blank">86acad3</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-02-28
-</td>
-<td>
-Publish the initial files
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/westernForests/blob/5857e8dc0ed20b21a9be903bfbc74de1ac324c4f/analysis/index.Rmd" target="_blank">5857e8d</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2022-02-28
-</td>
-<td>
-Start workflowr project.
+second go at SAF to add sankey
 </td>
 </tr>
 </tbody>
@@ -669,19 +590,19 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div id="western-forests-ecosystem-classification" class="section level2">
-<h2>Western Forests Ecosystem Classification</h2>
-<p>This “site” (not for public consumption) is where we can explore the comparison between <a href="https://landfire.gov/evt.php">2016 LANDFIRE Existing Vegetation Type (EVT)</a> and <a href="https://data.nal.usda.gov/dataset/treemap-2016-tree-level-model-forests-conterminous-united-states-circa-2016">Treemap 2016</a> data among other things as they come up.</p>
+<div id="the-80-80-sankey-chart" class="section level2">
+<h2>The 80-80 Sankey chart</h2>
+<p>For this chart I filtered the TreeMap types first by “Dry” types as assigned by Randy and Kori, then by those that cover 80% of the western states then filtered the EVT types that cover 80% of those types. Below the chart is the dataset used in the chart for your enjoyment/review.</p>
+<p>Hover over nodes to explore connections. Node/band size represents relative amounts. To get acres explore table below.</p>
+<p><br></p>
+<p><strong>TREEMAP TYPES ON THE LEFT</strong> ————————————————- <strong>EVTs ON THE RIGHT</strong></p>
+<div id="htmlwidget-77681f5b5c33594df076" style="width:1100px;height:1000px;" class="sankeyNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-77681f5b5c33594df076">{"x":{"links":{"source":[0,0,1,1,1,2,2,2,3,3,3,3,4,4,5,5,6,6,7,7,7,8,8,9,9,10,10,10],"target":[11,12,13,14,15,16,17,18,19,20,21,18,12,19,12,22,21,19,23,19,12,24,19,12,22,25,20,26],"value":[27160994,5791770,6125120,2271022,1260914,14680270,6737584,3254922,61112719,25738626,15463239,9429850,8844320,836673,21468670,4210499,10833620,6775803,47800738,7118283,5269416,81126893,14636935,11346143,2223896,7304565,4933665,2470187]},"nodes":{"name":["Aspen","Blue oak","California mixed conifer","Douglas-fir","Engelmann spruce","Engelmann spruce / subalpine fir","Grand fir","Lodgepole pine","Ponderosa pine","Subalpine fir","Western hemlock","SAF 217: Aspen","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 250: Blue Oak-Digger Pine","SAF 246: California Black Oak","SAF 241: Western Live Oak","SAF 211: White Fir","SAF 243: Sierra Nevada Mixed Conifer","SAF 234: Douglas-Fir-Tanoak-Pacific Madrone","SAF 210: Interior Douglas-Fir","SAF 230: Douglas-Fir-Western Hemlock","SAF 213: Grand Fir","SAF 208: Whitebark Pine","SAF 218: Lodgepole Pine","SAF 237: Interior Ponderosa Pine","SAF 226: Coastal True Fir-Hemlock","SAF 223: Sitka Spruce"],"group":["Aspen","Blue oak","California mixed conifer","Douglas-fir","Engelmann spruce","Engelmann spruce / subalpine fir","Grand fir","Lodgepole pine","Ponderosa pine","Subalpine fir","Western hemlock","SAF 217: Aspen","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 250: Blue Oak-Digger Pine","SAF 246: California Black Oak","SAF 241: Western Live Oak","SAF 211: White Fir","SAF 243: Sierra Nevada Mixed Conifer","SAF 234: Douglas-Fir-Tanoak-Pacific Madrone","SAF 210: Interior Douglas-Fir","SAF 230: Douglas-Fir-Western Hemlock","SAF 213: Grand Fir","SAF 208: Whitebark Pine","SAF 218: Lodgepole Pine","SAF 237: Interior Ponderosa Pine","SAF 226: Coastal True Fir-Hemlock","SAF 223: Sitka Spruce"]},"options":{"NodeID":"name","NodeGroup":"name","LinkGroup":null,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":16,"fontFamily":null,"nodeWidth":15,"nodePadding":10,"units":"","margin":{"top":null,"right":1,"bottom":null,"left":null},"iterations":0,"sinksRight":false}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="methods" class="section level2">
-<h2>Methods</h2>
-<p>Breifly, Kori Blankenship combined the Treeap and EVT datasets using the <a href="https://pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-analyst/combine.htm">“Combine”</a> tool in the Spatial Analyst Toolbox of ArcGIS Pro (version). This tool essentially creates a new raster by “stacking” multiple rasters together, thereby giving each pixel the VALUES from each of the input rasters. Kori then joined in the attribute tables from the TreeMap and EVT data.</p>
-<p>There were other GIS steps. Kori’s notes can be found <a href="ProcessingNotes%204%20Forest%20Type%20and%20ForestType-EVT%20Grids.docx">here</a>.</p>
-</div>
-<div id="analysis-area" class="section level1">
-<h1>Analysis Area</h1>
-<p>Shapefile from Lisa McCauley. Names left off for fun. Canadians would know which state is which :).</p>
-<p><img src="states.JPG" style="display: block; margin: auto;" /></p>
+<div id="data-table" class="section level2">
+<h2>Data table</h2>
+<div id="htmlwidget-cc0b6a8319618b314159" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cc0b6a8319618b314159">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28"],["Aspen","Aspen","Blue oak","Blue oak","Blue oak","California mixed conifer","California mixed conifer","California mixed conifer","Douglas-fir","Douglas-fir","Douglas-fir","Douglas-fir","Engelmann spruce","Engelmann spruce","Engelmann spruce / subalpine fir","Engelmann spruce / subalpine fir","Grand fir","Grand fir","Lodgepole pine","Lodgepole pine","Lodgepole pine","Ponderosa pine","Ponderosa pine","Subalpine fir","Subalpine fir","Western hemlock","Western hemlock","Western hemlock"],["SAF 217: Aspen","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 250: Blue Oak-Digger Pine","SAF 246: California Black Oak","SAF 241: Western Live Oak","SAF 211: White Fir","SAF 243: Sierra Nevada Mixed Conifer","SAF 234: Douglas-Fir-Tanoak-Pacific Madrone","SAF 210: Interior Douglas-Fir","SAF 230: Douglas-Fir-Western Hemlock","SAF 213: Grand Fir","SAF 234: Douglas-Fir-Tanoak-Pacific Madrone","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 210: Interior Douglas-Fir","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 208: Whitebark Pine","SAF 213: Grand Fir","SAF 210: Interior Douglas-Fir","SAF 218: Lodgepole Pine","SAF 210: Interior Douglas-Fir","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 237: Interior Ponderosa Pine","SAF 210: Interior Douglas-Fir","SAF 206: Engelmann Spruce-Subalpine Fir","SAF 208: Whitebark Pine","SAF 226: Coastal True Fir-Hemlock","SAF 230: Douglas-Fir-Western Hemlock","SAF 223: Sitka Spruce"],[27160994,5791770,6125120,2271022,1260914,14680270,6737584,3254922,61112719,25738626,15463239,9429850,8844320,836673,21468670,4210499,10833620,6775803,47800738,7118283,5269416,81126893,14636935,11346143,2223896,7304565,4933665,2470187]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>TreeMap forest types<\/th>\n      <th>EVTs<\/th>\n      <th>Acres<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -707,21 +628,25 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.7.0
+[1] DT_0.20         readr_2.1.2     dplyr_1.0.7     networkD3_0.4  
+[5] workflowr_1.7.0
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.8       highr_0.9        bslib_0.3.1      compiler_4.1.2  
- [5] pillar_1.7.0     later_1.3.0      git2r_0.29.0     jquerylib_0.1.4 
- [9] tools_4.1.2      getPass_0.2-2    digest_0.6.29    jsonlite_1.7.3  
-[13] evaluate_0.14    tibble_3.1.6     lifecycle_1.0.1  pkgconfig_2.0.3 
-[17] rlang_1.0.1      cli_3.1.1        rstudioapi_0.13  yaml_2.2.2      
-[21] xfun_0.29        fastmap_1.1.0    httr_1.4.2       stringr_1.4.0   
-[25] knitr_1.37       sass_0.4.0       fs_1.5.2         vctrs_0.3.8     
-[29] rprojroot_2.0.2  glue_1.6.1       R6_2.5.1         processx_3.5.2  
-[33] fansi_1.0.2      rmarkdown_2.11   callr_3.7.0      magrittr_2.0.2  
-[37] whisker_0.4      ps_1.6.0         promises_1.2.0.1 htmltools_0.5.2 
-[41] ellipsis_0.3.2   httpuv_1.6.5     utf8_1.2.2       stringi_1.7.6   
-[45] crayon_1.4.2    </code></pre>
+ [1] tidyselect_1.1.1  xfun_0.29         bslib_0.3.1       purrr_0.3.4      
+ [5] vctrs_0.3.8       generics_0.1.2    htmltools_0.5.2   yaml_2.2.2       
+ [9] utf8_1.2.2        rlang_1.0.1       jquerylib_0.1.4   later_1.3.0      
+[13] pillar_1.7.0      glue_1.6.1        DBI_1.1.2         bit64_4.0.5      
+[17] lifecycle_1.0.1   stringr_1.4.0     htmlwidgets_1.5.4 evaluate_0.14    
+[21] knitr_1.37        callr_3.7.0       tzdb_0.2.0        fastmap_1.1.0    
+[25] crosstalk_1.2.0   httpuv_1.6.5      ps_1.6.0          parallel_4.1.2   
+[29] fansi_1.0.2       Rcpp_1.0.8        promises_1.2.0.1  vroom_1.5.7      
+[33] jsonlite_1.7.3    bit_4.0.4         fs_1.5.2          hms_1.1.1        
+[37] digest_0.6.29     stringi_1.7.6     processx_3.5.2    getPass_0.2-2    
+[41] rprojroot_2.0.2   cli_3.1.1         tools_4.1.2       magrittr_2.0.2   
+[45] sass_0.4.0        tibble_3.1.6      crayon_1.4.2      whisker_0.4      
+[49] pkgconfig_2.0.3   ellipsis_0.3.2    assertthat_0.2.1  rmarkdown_2.11   
+[53] httr_1.4.2        rstudioapi_0.13   R6_2.5.1          igraph_1.2.11    
+[57] git2r_0.29.0      compiler_4.1.2   </code></pre>
 </div>
 </div>
 
@@ -741,6 +666,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -773,6 +700,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
