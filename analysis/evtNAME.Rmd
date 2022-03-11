@@ -1,5 +1,5 @@
 ---
-title: "evtData"
+title: "EVT Data, using 'EVT_NAME' attribute"
 author: "Kori Blankenship and Randy Swaty"
 date: "2022-03-01"
 output: workflowr::wflow_html
@@ -14,7 +14,7 @@ library(tidyverse)
 ```
 
 
-## The EVT data
+## The EVT data, 'EVT_NAME' atttribute (one of many!)
 
 Below is a chart representing acres per LANDFIRE EVT (Ecological System; from NatureServe), followed by the raw data.  
 
@@ -27,7 +27,7 @@ Below is a chart representing acres per LANDFIRE EVT (Ecological System; from Na
 
 ### The (long!) chart
 
-```{r tmChart, echo=FALSE, message=FALSE, warning=FALSE, fig.height=22, fig.width=10, fig.align='left'}
+```{r evtNameChart, echo=FALSE, message=FALSE, warning=FALSE, fig.height=22, fig.width=10, fig.align='left'}
 
 # read in data
 fsttype_evt200 <- read_csv("data/fsttype_evt200.csv")

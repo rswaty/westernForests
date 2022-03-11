@@ -1,5 +1,5 @@
 ---
-title: "Sankey 80-80"
+title: "Sankey comparing TreeMap to EVT (EVT_NAME attribute)"
 author: "Kori Blakenship and Randy Swaty"
 date: "2022-02-28"
 output: workflowr::wflow_html

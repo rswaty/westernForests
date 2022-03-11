@@ -1,5 +1,5 @@
 ---
-title: "safSrm"
+title: "EVT Data, using 'SAF_SRM' attribute"
 author: "rswaty"
 date: "2022-03-11"
 output: workflowr::wflow_html
@@ -7,9 +7,86 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+```{r packages, message=FALSE, warning=FALSE, include=FALSE}
+library(DT)
+library(scales)
+library(tidyverse)
+```
 
-```{r}
+
+## The EVT data, 'SAF-SRM' atttribute (one of many!) 
+
+Below is a chart representing acres per LANDFIRE EVT (Ecological System; from NatureServe), followed by the raw data.  
+
+**Notable:**
+
+ * There are 55 types total.  No oddballs noted.
+ * We assume we will filter out "wet" types, types that do not exist in the western US as we know it, and pinyon-juniper-cedar types.
+ * 80% of the area is covered by 13 EVTs in this unfiltered data.  
+
+
+### The (long!) chart
+
+```{r evtSafSrmChart, echo=FALSE, message=FALSE, warning=FALSE, fig.height=22, fig.width=10, fig.align='left'}
+
+# read in data
+fsttype_evt200 <- read_csv("data/fsttype_evt200.csv")
+#View(fsttype_evt200)
+
+# format TreeMap data for chart
+evtData <- fsttype_evt200 %>%
+  group_by(SAF_SRM) %>%
+  summarise(COUNT = sum(COUNT)) %>%
+  mutate(ACRES = (COUNT *0.222)) %>%
+  arrange(desc(ACRES))
+
+# make chart
+evtPlot <-
+  ggplot(evtData, aes(y = ACRES, x = reorder(SAF_SRM, -ACRES))) +
+  geom_bar(stat = "identity", fill = "#2a5085") +
+  coord_flip() +
+  labs(
+    title = "Acreage of each forested LANDFIRE EVT in the western states",
+    subtitle = "Unfiltered, i.e., includes Pinyon-Junper and riparian types",
+    caption = "Data from https://landfire.gov/evt.php",
+    x = "",
+    y = "Acres",
+    fill = "Status") +
+  scale_x_discrete(limits=rev) +
+	scale_y_continuous(labels = label_number(suffix = " M", scale = 1e-6)) + 
+  theme_bw(base_size = 16) + 
+  theme(plot.caption = element_text(hjust = 0, face= "italic"), #Default is hjust=1
+        plot.title.position = "plot", #NEW parameter. Apply for subtitle too.
+        plot.caption.position =  "plot")  +
+  annotate(
+    geom = "curve", x = 42, y = 12000000, xend = 44, yend = 4500000,
+    curvature = .3, arrow = arrow(length = unit(2, "mm"))
+  ) +
+  annotate(geom = "text", x = 42, y = 12000000, label = "80% point", hjust = "left")
+
+evtPlot
 
 ```
+ 
+ <br>
+ 
+### Data table
+
+
+Here's the data as used in the chart above for your amusememt.
+<br>
+
+```{r tmData, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+datatable(evtData,
+          colnames = c("EVTs",
+                       "Raw pixel count",
+                       "Acres"),
+          class = 'cell-border stripe')
+
+```
+
+
+
 
