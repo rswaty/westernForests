@@ -53,10 +53,6 @@ kbTable2 %>%
 ## Maps
 
 
-```{r states, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/states.JPG", error = FALSE)
-```
-
 
 FIA
 ```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
