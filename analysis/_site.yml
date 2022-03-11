@@ -1,16 +1,22 @@
 name: westernForests
 output_dir: ../docs
 navbar:
-  title: westernForests
+  title: Western Forests-Classification
   left:
   - text: Home
     href: index.html
   - text: TreeMap Data
     href: treemapData.html
-  - text: EVT data
-    href: evtData.html
-  - text: Sankey
-    href: sankey80.html
+  - text: EVT data (by NAME)
+    href: evtNAME.html
+  - text: Sankey (TreeMap by NAME)
+    href: sankeyTM_NAME.html
+  - text: EVT data (SAF-SRM)
+    href: evtSafSrm.html
+  - text: Sankey (TreeMap by SAF-SRM)
+    href: sankeyTM_SAF.html
+  - text: Recommendations
+    href: recommendations.html
   # - text: About
   #   href: about.html
   # - text: License
