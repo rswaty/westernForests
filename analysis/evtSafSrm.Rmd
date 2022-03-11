@@ -1,6 +1,6 @@
 ---
 title: "EVT Data, using 'SAF_SRM' attribute"
-author: "rswaty"
+author: "Kori Blakenship and Randy Swaty"
 date: "2022-03-11"
 output: workflowr::wflow_html
 editor_options:
