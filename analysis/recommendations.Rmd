@@ -56,7 +56,7 @@ kbTable2 %>%
 
 FIA
 ```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("assets/DryForestFIA.JPG", error = FALSE)
+knitr::include_graphics("assets/fia.JPG", error = FALSE)
 ```
 
 SAF
