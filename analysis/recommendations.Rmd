@@ -7,7 +7,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Comparison of dry conifer forest mapping: FIS vs. SAF vs. EVT
+## Comparison of dry conifer forest mapping: FIA vs. SAF vs. EVT
 
 
 ```{r table1, echo=FALSE, message=FALSE, warning=FALSE}
@@ -54,17 +54,17 @@ kbTable2 %>%
 
 ### FIA
 ```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("DryForest-FIA", error = FALSE)
+knitr::include_graphics("DryForest-FIA.JPG", error = FALSE)
 ```
 
 ### SAF
 ```{r SAFmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("DryForest-SAF", error = FALSE)
+knitr::include_graphics("DryForest-SAF.JPG", error = FALSE)
 ```
 
 
 ### EVT
 ```{r EVTmap, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("DryForest-EVT", error = FALSE)
+knitr::include_graphics("DryForest-EVT.JPG", error = FALSE)
 ```
 

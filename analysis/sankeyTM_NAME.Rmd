@@ -13,12 +13,6 @@ For this chart I filtered the TreeMap types first by "Dry" types as assigned by 
 
 Hover over nodes to explore connections.  Node/band size represents relative amounts.  To get acres explore table below.
 
-We hope you like brown 'cause we aren't changing it.  Brown (aka "Hazel") likes it.
-
-
-```{r states, echo=FALSE, message=FALSE, warning=FALSE}
-knitr::include_graphics("brown.JPG", error = FALSE)
-```
 
  
  <br>
