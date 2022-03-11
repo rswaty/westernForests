@@ -52,18 +52,24 @@ kbTable2 %>%
 
 ## Maps
 
-### FIA
-```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10}
+
+```{r states, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("assets/states.JPG", error = FALSE)
+```
+
+
+FIA
+```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("assets/DryForest-FIA.JPG", error = FALSE)
 ```
 
-### SAF
+SAF
 ```{r SAFmap, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("assets/DryForest-SAF.JPG", error = FALSE)
 ```
 
 
-### EVT
+EVT
 ```{r EVTmap, echo=FALSE, message=FALSE, warning=FALSE}
 knitr::include_graphics("assets/DryForest-EVT.JPG", error = FALSE)
 ```
