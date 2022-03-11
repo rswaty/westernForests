@@ -1,5 +1,5 @@
 ---
-title: "recommendations"
+title: "Recommendations and maps"
 author: "Kori Blakenship and Randy Swaty"
 date: "2022-03-11"
 output: workflowr::wflow_html
@@ -7,9 +7,64 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## Comparison of dry conifer forest mapping: FIS vs. SAF vs. EVT
 
-```{r}
 
+```{r table1, echo=FALSE, message=FALSE, warning=FALSE}
+library(kableExtra)
+library(tidyverse)
+
+
+options(knitr.kable.NA = '')
+kbTable <- read_csv("data/kbTable.csv")
+
+kbTable %>%
+  kable("html",align = 'clc')%>%
+  kable_styling(full_width = F,position="left",bootstrap_options = 
+  c("striped","bordered"))
+```
+
+1 & 2 - Mapped core dry conifer forest types including grand fir, which could be present today on dry forest sites. Included a few minor dry conifer types (e.g. larch, incense cedar). Did not include oak/pine or juniper types.
+3 - Mapped ponderosa pine, dry mixed conifer, and mesic mixed conifer types. Lumped regional variants to simplify display (e.g. Northern Rocky Mountains PIPO lumped w/ Southern Rocky Mountain PIPO)
+
+
+## Pros and cons of each legend
+
+```{r table2, echo=FALSE, message=FALSE, warning=FALSE}
+library(kableExtra)
+library(tidyverse)
+
+
+options(knitr.kable.NA = '')
+kbTable2 <- read_csv("data/kbTable2.csv")
+
+kbTable2 %>%
+  kable("html",align = 'clc')%>%
+  kable_styling(full_width = F,position="left",bootstrap_options = 
+  c("striped","bordered"))
+```
+
+## Summary recommendation (Kori's thoughts)
+* LF EVT has preferred legend for mapping dry conifer forest
+* Better to lump EVTs into preferred types for mapping than to use LF SAF (retains integrity of original mapped classes vs. x-walk)
+* FIA may be preferred for linking to literature and for C calculation but need to address issues w/ distinguishing dry vs. wet Douglas-fir and Mixed Conifer
+* We could use LF EVT to split these out.
+
+## Maps
+
+### FIA
+```{r FIAmap, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("DryForest-FIA", error = FALSE)
+```
+
+### SAF
+```{r SAFmap, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("DryForest-SAF", error = FALSE)
+```
+
+
+### EVT
+```{r EVTmap, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("DryForest-EVT", error = FALSE)
 ```
 
