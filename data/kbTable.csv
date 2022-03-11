@@ -1,0 +1,12 @@
+VEG TYPE,TreeMap FIA(1),LF SAF(2),LF EVT (3),COMMENTS
+Douglas-fir,"Extensive in W. Cascades
+",Mapped Interior Douglas-Fir in dry forest locations,Restricted to Middle Rockies,Mapped concepts differ between products
+Douglas-fir,Does not distinguish wet from dry DF,,,
+Ponderosa,More extensive in the Blues and Okanogan compared to SAF and EVT,,,Distribution similar between products; SAF and EVT are nearly identical (likely a result of the x-walk)
+Mixed Conifer,Restricted to CA,"Mapped in CA and Klamath
+","Mapped west-wide
+",Mapped concepts differ between products
+Mixed Conifer,Restricted to CA,Mapped less compared to FIA and EVT in CA,Splits dry vs. Mesic,
+Grand fir,,Much more extensive in WA Cascades and ID Panhandle than FIA,Not mapped as its own type; this concept is mapped as mesic mixed con,
+Larch,Mapped more extensively than other products,,,Relatively minor type
+OTHER OBSERVATIONS,Eastern types mapped in the west (e.g. loblolly pine),,,Map comparison is confounded -- all products derived from LF EVT map and FIA plots
